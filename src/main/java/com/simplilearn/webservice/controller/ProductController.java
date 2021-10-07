@@ -46,9 +46,9 @@ public class ProductController {
 
 	// create product
 	@PostMapping("/products")
-	public Product addProduct(@RequestBody Product productObj) {
+	public Product addProduct(@RequestBody(required=false) Product productObj) {
 		if(productObj !=null) {
-		return pRepo.save(productObj);
+			return pRepo.save(productObj);
 		}
 		throw new InvalidProductException("Product creation failed ! missing project object !");
 	}

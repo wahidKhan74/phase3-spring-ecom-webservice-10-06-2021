@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.simplilearn.webservice.exceptions.InvalidProductException;
-import com.simplilearn.webservice.exceptions.ProductAlreadyException;
+import com.simplilearn.webservice.exceptions.ProductAlreadyExistException;
 import com.simplilearn.webservice.exceptions.ProductNotFoundException;
 
 @ControllerAdvice
@@ -31,8 +31,8 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<ExceptionResponse>(response,HttpStatus.BAD_REQUEST);
 	}
 	
-	@ExceptionHandler(value=ProductAlreadyException.class)
-	public ResponseEntity<ExceptionResponse> alreadyExistException(ProductAlreadyException exception) {
+	@ExceptionHandler(value=ProductAlreadyExistException.class)
+	public ResponseEntity<ExceptionResponse> alreadyExistException(ProductAlreadyExistException exception) {
 		response = new ExceptionResponse(exception.getMessage(), new Date(), 
 				HttpStatus.BAD_REQUEST.name(), exception.getClass().getSimpleName());
 		return new ResponseEntity<ExceptionResponse>(response,HttpStatus.BAD_REQUEST);
