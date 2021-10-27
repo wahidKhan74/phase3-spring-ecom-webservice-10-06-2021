@@ -25,9 +25,7 @@ public class Product {
 	@Column(name="product_price")
 	private double price;
 	
-	public Product(long id, String name, String description, double price) {
-		super();
-		this.id = id;
+	public Product(String name, String description, double price) {
 		this.name = name;
 		this.description = description;
 		this.price = price;
